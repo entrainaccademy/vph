@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <>
       {/* Hero: two-tone headline on the left, logistics scene on the right. */}
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-sand">
         <div
           className={`relative ${wide} grid items-center gap-10 pt-12 pb-14 sm:pt-16 lg:min-h-[min(calc(100svh-4.5rem),46rem)] lg:grid-cols-[1fr_1.1fr] lg:gap-6 lg:py-10`}
         >
@@ -76,7 +76,7 @@ export default function Home() {
               </span>
               <span className="mt-4 block text-5xl leading-[1.02] font-extrabold tracking-tight sm:text-6xl xl:text-7xl">
                 <span className="text-navy">Distributing</span>{" "}
-                <span className="text-gold">Values and Goods</span>
+                <span className="text-[#a17b33]">Values and Goods</span>
               </span>
             </h1>
             <p className="mt-6 max-w-md text-lg">
@@ -99,14 +99,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
+          <div className="relative">
             <Image
               src={site.heroScene.src}
               alt={site.heroScene.alt}
               width={site.heroScene.width}
               height={site.heroScene.height}
               preload
-              className="mx-auto h-auto w-full max-w-xl lg:max-w-none"
+              className="relative mx-auto h-auto w-full max-w-xl lg:max-w-none"
             />
           </div>
         </div>

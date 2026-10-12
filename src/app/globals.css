@@ -9,6 +9,8 @@
   /* Darker gold for small text on light backgrounds (AA contrast). */
   --color-gold-dark: #8a6420;
   --color-cream: #fbfaf6;
+  /* Light cream for the home hero; matches the logo background and gold. */
+  --color-sand: #fdf8ee;
   --color-body: #4b5563;
   --color-line: #e7e2d6;
   /* Pale navy tint for hero and alternating sections. */
