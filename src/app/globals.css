@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Design tokens, sampled from the VPH logo. */
+@theme {
+  --color-navy: #0b2545;
+  --color-navy-700: #13345e;
+  --color-gold: #b8893a;
+  --color-gold-light: #e3c27a;
+  /* Darker gold for small text on light backgrounds (AA contrast). */
+  --color-gold-dark: #8a6420;
+  --color-cream: #fbfaf6;
+  --color-body: #4b5563;
+  --color-line: #e7e2d6;
+  --color-whatsapp: #0f7a40;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(11 37 69 / 0.06), 0 4px 16px rgb(11 37 69 / 0.06);
+  --shadow-card-hover: 0 2px 4px rgb(11 37 69 / 0.08), 0 8px 24px rgb(11 37 69 / 0.1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    /* Keep anchored/focused content clear of the sticky header. */
+    scroll-padding-top: 6rem;
+    /* ...and clear of the floating WhatsApp button. */
+    scroll-padding-bottom: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background: var(--color-cream);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    color: var(--color-navy);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/*
+ * Logo frame. The placeholder logo has a lot of whitespace around the mark,
+ * so the frame crops to the mark with object-fit and a zoom factor.
+ * TODO: When the final logo arrives, adjust --logo-ratio / --logo-zoom.
+ */
+.logo-frame {
+  --logo-ratio: 12 / 5;
+  --logo-zoom: 1.35;
+  position: relative;
+  display: block;
+  height: 3rem;
+  aspect-ratio: var(--logo-ratio);
+  overflow: hidden;
+}
+
+.logo-frame img {
+  object-fit: cover;
+  transform: scale(var(--logo-zoom));
+}
+
+@media (min-width: 1024px) {
+  .logo-frame {
+    height: 3.5rem;
+  }
+}
+
+.logo-frame--footer {
+  height: 4rem;
 }
