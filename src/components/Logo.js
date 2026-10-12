@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/config/site";
 
 // Logo linked to the home page. Size is controlled by .logo-frame in
-// globals.css so the placeholder can be swapped without touching markup.
+// globals.css to crop the generous canvas around the supplied mark.
 export default function Logo({ variant = "header" }) {
   const isHeader = variant === "header";
 
@@ -18,8 +18,6 @@ export default function Logo({ variant = "header" }) {
         fill
         sizes={isHeader ? "220px" : "260px"}
         loading={isHeader ? "eager" : "lazy"}
-        // Blends the logo's off-white background into the header colour.
-        className={isHeader ? "mix-blend-multiply" : undefined}
       />
     </Link>
   );

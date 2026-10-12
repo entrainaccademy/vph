@@ -9,12 +9,10 @@
   /* Darker gold for small text on light backgrounds (AA contrast). */
   --color-gold-dark: #8a6420;
   --color-cream: #fbfaf6;
-  /* Light cream for the home hero; matches the logo background and gold. */
-  --color-sand: #fdf8ee;
   --color-body: #4b5563;
   --color-line: #e7e2d6;
-  /* Pale navy tint for hero and alternating sections. */
-  --color-wash: #eef3fa;
+  /* Soft navy tint for hero and alternating sections. */
+  --color-wash: #eef2f8;
   --color-wash-200: #dce6f4;
   --color-whatsapp: #0f7a40;
 
@@ -66,13 +64,13 @@
 }
 
 /*
- * Logo frame. The placeholder logo has a lot of whitespace around the mark,
+ * Logo frame. The supplied transparent logo has space around the mark,
  * so the frame crops to the mark with object-fit and a zoom factor.
- * TODO: When the final logo arrives, adjust --logo-ratio / --logo-zoom.
+ * Keep the mark legible in the header and footer without changing the asset.
  */
 .logo-frame {
   --logo-ratio: 12 / 5;
-  --logo-zoom: 1.35;
+  --logo-zoom: 1.7;
   position: relative;
   display: block;
   height: 3rem;
@@ -82,7 +80,9 @@
 
 .logo-frame img {
   object-fit: cover;
-  transform: scale(var(--logo-zoom));
+  object-position: center top;
+  transform-origin: top left;
+  transform: translate(-16%, 8%) scale(var(--logo-zoom));
 }
 
 @media (min-width: 1024px) {

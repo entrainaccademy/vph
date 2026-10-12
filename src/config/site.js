@@ -17,12 +17,11 @@ export const site = {
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000"),
 
-  // TODO: Placeholder logo. Replace the file (and width/height) when the
-  // final logo arrives. Rendered size is controlled in CSS (.logo-frame).
+  // Supplied final logo, used on the page and in Open Graph metadata.
   logo: {
-    src: "/vph_old_logo.jpeg",
-    width: 1280,
-    height: 853,
+    src: "/vph-final-logo.png",
+    width: 1210,
+    height: 579,
     alt: "VPH Enterprises - Distribution Expert logo",
   },
 

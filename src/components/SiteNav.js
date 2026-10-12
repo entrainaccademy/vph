@@ -72,7 +72,7 @@ export default function SiteNav() {
         id="mobile-menu"
         aria-label="Mobile"
         hidden={!open}
-        className="absolute inset-x-0 top-full border-b border-line bg-sand shadow-card md:hidden"
+        className="absolute inset-x-0 top-full border-b border-line bg-wash shadow-card md:hidden"
       >
         <ul className="mx-auto flex max-w-6xl flex-col px-4 py-3">
           {site.nav.map((item) => (
