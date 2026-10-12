@@ -1,26 +1,17 @@
-// Navy intro band with the page's single H1.
+import { Eyebrow } from "./SectionHeading";
+
+// Pale intro band with the page's single H1.
 export default function PageHero({ eyebrow, title, children }) {
   return (
-    <section className="relative overflow-hidden bg-navy text-white">
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-16 right-0 hidden h-64 w-64 translate-x-1/3 rotate-45 bg-navy-700 md:block"
-      />
-      <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="max-w-3xl">
-          {eyebrow && (
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold-light">
-              {eyebrow}
-            </p>
-          )}
-          <h1 className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
-            {title}
-          </h1>
-          <span aria-hidden="true" className="mt-5 block h-1 w-16 rounded-full bg-gold" />
-          {children && (
-            <div className="mt-6 text-lg text-white/85 sm:text-xl">{children}</div>
-          )}
-        </div>
+    <section className="bg-wash">
+      <div className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+        <h1 className="mx-auto mt-5 max-w-4xl text-4xl leading-[1.08] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+          {title}
+        </h1>
+        {children && (
+          <div className="mx-auto mt-6 max-w-2xl text-lg sm:text-xl">{children}</div>
+        )}
       </div>
     </section>
   );

@@ -6,6 +6,8 @@ export const site = {
   name: "VPH Enterprises",
   tagline: "Distributing Values and Goods",
   established: 2007,
+  // Number of retailers supplied, as given by the client.
+  retailerCount: "1,500+",
 
   // Production URL, used for canonical and Open Graph links.
   // TODO: Set NEXT_PUBLIC_SITE_URL once the domain is known.
@@ -22,6 +24,24 @@ export const site = {
     width: 1280,
     height: 853,
     alt: "VPH Enterprises - Distribution Expert logo",
+  },
+
+  // Home hero illustration: warehouse, forklift, trucks and goods (drawn for
+  // this site, no third-party licence).
+  heroScene: {
+    src: "/images/hero-logistics.svg",
+    width: 1037,
+    height: 724,
+    alt: "Illustration of a warehouse with a forklift, delivery van and box truck loading goods",
+  },
+
+  // Illustration for the "What we do" section (drawn for this site, no
+  // third-party licence).
+  illustration: {
+    src: "/images/delivery-illustration.svg",
+    width: 2107,
+    height: 1008,
+    alt: "Illustration of local shops, delivery trucks on the road and a warehouse with goods",
   },
 
   address: {
@@ -80,11 +100,13 @@ export const site = {
   brands: [
     { name: "Britannia", logo: "/clients/Britannia.png" },
     { name: "Mondelēz International", logo: "/clients/Mondelez.png" },
-    { name: "Ferrero", logo: "/clients/ferrore.png" },
+    { name: "Ferrero", logo: "/clients/ferrero_logo.png" },
     { name: "Dalda", logo: "/clients/Dalda.png" },
     { name: "Kitchen Treasures", logo: "/clients/treasures.png" },
     { name: "Kerafed", logo: "/clients/KERAFED.png" },
-    { name: "Parle Agro", logo: "/clients/Parle_Agro_Logo.png" },
+    // TODO: Confirm with the client whether this is Parle (Parle Products,
+    // Parle-G) or Parle Agro; the brief listed Parle Agro.
+    { name: "Parle", logo: "/clients/parle_logo.webp" },
     { name: "GSK", logo: "/clients/GlaxoSmithKline.png" },
   ],
 };

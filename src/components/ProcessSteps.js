@@ -20,22 +20,24 @@ const steps = [
 
 export default function ProcessSteps() {
   return (
-    <ol className="grid gap-4 sm:gap-6 md:grid-cols-3">
+    <ol className="grid gap-5 md:grid-cols-3">
       {steps.map((step, i) => (
         <li
           key={step.title}
-          className="relative rounded-xl border border-line bg-white p-6 shadow-card"
+          className="flex flex-col rounded-xl border-2 border-navy bg-white p-6 shadow-[5px_5px_0_0_var(--color-navy)]"
         >
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between gap-4">
+            <span className="inline-flex size-12 items-center justify-center rounded-lg bg-wash text-navy">
+              <step.icon className="size-6" />
+            </span>
             <span
               aria-hidden="true"
-              className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-gold font-heading text-lg font-bold text-navy"
+              className="text-4xl leading-none font-semibold text-wash-200"
             >
-              {i + 1}
+              {String(i + 1).padStart(2, "0")}
             </span>
-            <step.icon className="size-7 text-navy" />
           </div>
-          <h3 className="mt-4 text-lg font-bold">
+          <h3 className="mt-8 text-xl font-semibold">
             <span className="sr-only">Step {i + 1}: </span>
             {step.title}
           </h3>

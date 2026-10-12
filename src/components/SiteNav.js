@@ -17,7 +17,7 @@ export default function SiteNav() {
 
   return (
     <div
-      className="flex items-center gap-2"
+      className="flex flex-1 items-center justify-end gap-2"
       onKeyDown={(e) => {
         if (e.key === "Escape" && open) {
           setOpen(false);
@@ -26,7 +26,7 @@ export default function SiteNav() {
       }}
     >
       {/* Desktop navigation */}
-      <nav aria-label="Main" className="hidden md:block">
+      <nav aria-label="Main" className="hidden md:flex md:flex-1 md:justify-center">
         <ul className="flex items-center gap-1">
           {site.nav.map((item) => (
             <li key={item.href}>
@@ -48,7 +48,7 @@ export default function SiteNav() {
 
       <a
         href={site.phone.href}
-        className="ml-1 inline-flex min-h-11 items-center gap-2 rounded-lg bg-gold px-4 font-semibold text-navy transition-colors hover:bg-gold-light focus-visible:bg-gold-light"
+        className="ml-1 inline-flex min-h-11 items-center gap-2 rounded-md bg-navy px-5 font-medium text-white transition-colors hover:bg-navy-700"
       >
         <PhoneIcon className="size-4" />
         <span>Call</span>
@@ -59,7 +59,7 @@ export default function SiteNav() {
       <button
         id="menu-toggle"
         type="button"
-        className="inline-flex size-11 items-center justify-center rounded-lg border border-line text-navy hover:bg-white md:hidden"
+        className="inline-flex size-11 items-center justify-center rounded-md border border-navy/25 text-navy hover:bg-white md:hidden"
         aria-expanded={open}
         aria-controls="mobile-menu"
         onClick={() => setOpen((v) => !v)}
@@ -72,7 +72,7 @@ export default function SiteNav() {
         id="mobile-menu"
         aria-label="Mobile"
         hidden={!open}
-        className="absolute inset-x-0 top-full border-b border-line bg-cream shadow-card md:hidden"
+        className="absolute inset-x-0 top-full border-b border-line bg-wash shadow-card md:hidden"
       >
         <ul className="mx-auto flex max-w-6xl flex-col px-4 py-3">
           {site.nav.map((item) => (

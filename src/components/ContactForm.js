@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { site, whatsappLink } from "@/config/site";
-import { buttonClasses } from "./Button";
+import Button from "./Button";
 import { WhatsAppIcon } from "./Icons";
 
 const initialValues = {
@@ -52,7 +52,7 @@ const inputClass =
   "mt-2 block min-h-12 w-full rounded-lg border bg-white px-4 py-3 text-base text-navy placeholder:text-gray-500 focus:border-navy";
 
 function fieldClass(hasError) {
-  return `${inputClass} ${hasError ? "border-red-700" : "border-line"}`;
+  return `${inputClass} ${hasError ? "border-red-700" : "border-gray-500"}`;
 }
 
 function ErrorText({ id, children }) {
@@ -153,9 +153,9 @@ export default function ContactForm() {
       noValidate
       onSubmit={handleSubmit}
       aria-describedby="form-note"
-      className="relative rounded-xl border border-line bg-white p-5 shadow-card sm:p-8"
+      className="relative rounded-xl border-2 border-navy bg-white p-5 shadow-[6px_6px_0_0_var(--color-navy)] sm:p-8"
     >
-      <h2 className="text-2xl font-bold">Send an enquiry</h2>
+      <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">Send an enquiry</h2>
       <p id="form-note" className="mt-2">
         Fields marked <span aria-hidden="true">*</span>
         <span className="sr-only">with an asterisk</span> are required.
@@ -244,8 +244,8 @@ export default function ContactForm() {
           {roles.map((role) => (
             <label
               key={role}
-              className={`inline-flex min-h-12 cursor-pointer items-center gap-3 rounded-lg border px-4 has-checked:border-navy has-checked:bg-cream ${
-                errors.role ? "border-red-700" : "border-line"
+              className={`inline-flex min-h-12 cursor-pointer items-center gap-3 rounded-lg border px-4 bg-white has-checked:border-navy has-checked:bg-wash ${
+                errors.role ? "border-red-700" : "border-gray-500"
               }`}
             >
               <input
@@ -297,22 +297,17 @@ export default function ContactForm() {
       </div>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <button
+        <Button
           type="submit"
           disabled={submitting}
-          className={buttonClasses("primary", "disabled:cursor-wait disabled:opacity-70")}
+          className="disabled:cursor-wait disabled:opacity-70"
         >
           {submitting ? "Sending…" : "Send enquiry"}
-        </button>
-        <button
-          type="button"
-          onClick={handleWhatsApp}
-          className={buttonClasses("secondary")}
-        >
-          <WhatsAppIcon />
+        </Button>
+        <Button variant="secondary" icon={WhatsAppIcon} onClick={handleWhatsApp}>
           Send on WhatsApp
-          <span className="sr-only">(opens in a new tab)</span>
-        </button>
+          <span className="sr-only"> (opens in a new tab)</span>
+        </Button>
       </div>
 
       <div aria-live="polite" role="status" className="mt-5 empty:hidden">

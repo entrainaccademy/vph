@@ -156,3 +156,14 @@ export function WhatsAppIcon({ className = "size-5" }) {
     </svg>
   );
 }
+
+export function StoreIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M3 9 4.5 4h15L21 9" />
+      <path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0" />
+      <path d="M5 11.5V20h14v-8.5" />
+      <path d="M10 20v-5h4v5" />
+    </Svg>
+  );
+}

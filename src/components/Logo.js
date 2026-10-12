@@ -18,7 +18,8 @@ export default function Logo({ variant = "header" }) {
         fill
         sizes={isHeader ? "220px" : "260px"}
         loading={isHeader ? "eager" : "lazy"}
-        fetchPriority={isHeader ? "high" : "auto"}
+        // Blends the logo's off-white background into the header colour.
+        className={isHeader ? "mix-blend-multiply" : undefined}
       />
     </Link>
   );

@@ -3,22 +3,35 @@ import { site } from "@/config/site";
 
 export default function BrandGrid({ brands = site.brands }) {
   return (
-    <ul className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+    <ul className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-4">
       {brands.map((brand) => (
         <li
           key={brand.name}
-          className="rounded-xl border border-line bg-white p-3 shadow-card transition-shadow hover:shadow-card-hover"
+          className="rounded-xl border-2 border-navy/10 bg-white p-2 transition-[border-color,box-shadow] duration-150 hover:border-navy hover:shadow-[4px_4px_0_0_var(--color-navy)] sm:p-3"
         >
           {/* Equal-size box so every logo has the same visual weight. */}
           <div className="relative aspect-3/2 w-full">
-            <Image
-              src={brand.logo}
-              alt={`${brand.name} - distributed by VPH Enterprises`}
-              fill
-              sizes="(min-width: 1152px) 240px, (min-width: 768px) 22vw, 44vw"
-              className="object-contain p-2 sm:p-4"
-            />
+            {brand.logoMissing ? (
+              // Placeholder until a usable logo file is supplied.
+              <p className="flex h-full items-center justify-center text-xl font-semibold text-navy">
+                {brand.name}
+              </p>
+            ) : (
+              <Image
+                src={brand.logo}
+                alt={`${brand.name} - distributed by VPH Enterprises`}
+                fill
+                sizes="(min-width: 1152px) 260px, (min-width: 768px) 23vw, 46vw"
+                className="object-contain p-3 sm:p-5"
+              />
+            )}
           </div>
+          <p
+            aria-hidden="true"
+            className="border-t border-navy/10 px-1 pt-2 text-center text-sm font-medium text-navy"
+          >
+            {brand.name}
+          </p>
         </li>
       ))}
     </ul>
