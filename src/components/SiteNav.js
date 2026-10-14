@@ -48,7 +48,7 @@ export default function SiteNav() {
 
       <a
         href={site.phone.href}
-        className="ml-1 inline-flex min-h-11 items-center gap-2 rounded-md bg-navy px-5 font-medium text-white transition-colors hover:bg-navy-700"
+        className="ml-1 inline-flex min-h-11 items-center gap-2 rounded-md bg-navy px-5 font-medium text-white transition-colors hover:bg-navy-700 md:hidden"
       >
         <PhoneIcon className="size-4" />
         <span>Call</span>

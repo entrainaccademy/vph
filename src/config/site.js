@@ -1,6 +1,7 @@
 // Single source of truth for business details used across the site.
 
-const phoneDigits = "919539890001";
+// TESTING: temporary number to check calls/WhatsApp. Original: 919539890001 (+91 95398 90001).
+const phoneDigits = "919539637133";
 
 export const site = {
   name: "VPH Enterprises",
@@ -52,8 +53,8 @@ export const site = {
   },
 
   phone: {
-    display: "+91 95398 90001",
-    href: "tel:+919539890001",
+    display: "+91 95396 37133",
+    href: "tel:+919539637133",
   },
 
   // TODO: Client has not confirmed this is their WhatsApp number.

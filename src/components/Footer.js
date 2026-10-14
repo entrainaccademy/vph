@@ -10,8 +10,11 @@ export default function Footer() {
       <FooterTruck />
       {/* Extra bottom padding keeps the floating WhatsApp button clear of
           footer content. */}
-      <div className="bg-cream pb-24 sm:pb-12">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.3fr_1.4fr_1fr] lg:px-8">
+      <div className="relative overflow-hidden bg-[#f6ebd0] pb-24 sm:pb-12">
+        {/* Soft glows */}
+        <div aria-hidden="true" className="pointer-events-none absolute -top-10 -left-20 h-56 w-3/4 rounded-full bg-white/60 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 -bottom-10 h-56 w-2/3 rounded-full bg-white/60 blur-3xl" />
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pt-12 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.3fr_1.4fr_1fr] lg:px-8">
           <div>
             <Logo variant="footer" />
             <p className="mt-4 font-heading text-lg font-semibold text-gold-dark">
@@ -75,8 +78,8 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mx-auto mt-10 max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="border-t border-navy/15 pt-6 text-sm">
+        <div className="relative mx-auto mt-10 max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p className="border-t border-navy/25 pt-6 text-sm text-navy/80">
             © 2026 {site.name}. All rights reserved.
           </p>
         </div>

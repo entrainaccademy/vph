@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import { LazyMotion, domAnimation, m, useReducedMotion, useScroll, useTransform } from "motion/react";
 
@@ -43,7 +44,7 @@ function Truck() {
 }
 
 // A truck that drives along the road line as the footer scrolls into view. Stays parked for reduced-motion visitors.
-export default function FooterTruck() {
+function TruckBand() {
   const ref = useRef(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -66,4 +67,10 @@ export default function FooterTruck() {
       </div>
     </LazyMotion>
   );
+}
+
+// The About page ends with its own band, so it gets no truck.
+export default function FooterTruck() {
+  if (usePathname() === "/about") return null;
+  return <TruckBand />;
 }

@@ -135,8 +135,7 @@ export default function Home() {
               We are an FMCG distribution company connecting leading brands to
               retailers across Malappuram District. Our executive marketer
               visits your shop and takes your order, our supply team packs it,
-              and our delivery team brings it to your doorstep. There is no
-              minimum order.
+              and our delivery team brings it to your doorstep.
             </p>
           </SectionHeading>
           {/* Shops, delivery trucks and the godown: the journey described above. */}

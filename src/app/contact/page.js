@@ -1,8 +1,6 @@
-import Button from "@/components/Button";
 import ContactForm from "@/components/ContactForm";
-import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
-import { MapPinIcon, PhoneIcon, WhatsAppIcon } from "@/components/Icons";
+import { ArrowRightIcon, MapPinIcon, PhoneIcon, WhatsAppIcon } from "@/components/Icons";
 import { fullAddress, site, whatsappLink } from "@/config/site";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -18,75 +16,97 @@ const container = "mx-auto max-w-6xl px-4 sm:px-6 lg:px-8";
 export default function ContactPage() {
   return (
     <>
-      <PageHero eyebrow="Get in touch" title="Contact VPH Enterprises">
-        <p>
-          Whether you&apos;re a retailer wanting to stock our brands or a
-          company seeking a distributor in Malappuram, we&apos;d love to hear
-          from you.
-        </p>
-      </PageHero>
+      <section aria-label="Contact VPH Enterprises" className="py-12 sm:py-20">
+        {/* Heading on top, then the details panel and the form side by side, so
+            the two boxes always have the same height. */}
+        <div className={`${container} grid gap-8 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-10`}>
+          <h1 className="order-1 font-heading text-[clamp(3rem,8vw,6.5rem)] leading-[0.92] font-extrabold tracking-tighter text-center text-navy lg:order-0 lg:text-left">
+            Let&rsquo;s get
+            <span className="block">in touch</span>
+          </h1>
 
-      <section aria-label="Enquiry form and contact details" className="py-16 sm:py-20">
-        <div className={`${container} grid items-start gap-8 lg:grid-cols-[1.5fr_1fr]`}>
-          <ContactForm />
+          {/* Arrow from the heading across to the form (wide screens only). */}
+          <div aria-hidden="true" className="hidden items-center lg:flex">
+            <span className="h-0.5 flex-1 bg-navy" />
+            <ArrowRightIcon className="-ml-3 size-8 shrink-0 text-navy" />
+          </div>
 
-          <aside
-            aria-labelledby="contact-details"
-            className="rounded-xl border-2 border-navy bg-navy p-5 text-white/85 shadow-[6px_6px_0_0_var(--color-gold)] sm:p-8"
-          >
-            <h2
-              id="contact-details"
-              className="text-2xl font-semibold tracking-tight text-white sm:text-3xl"
-            >
-              Contact details
+          {/* Details on a soft cream-gold panel. */}
+          <div className="order-2 flex flex-col rounded-4xl bg-[#f6ebd0] p-5 sm:p-8 lg:order-0">
+            <h2 className="font-heading text-3xl leading-tight font-bold tracking-tight text-navy sm:text-4xl">
+              Send an enquiry
             </h2>
+            <p className="mt-3 max-w-sm text-lg text-navy/85">
+              Tell us what your shop needs and our team will get back to you.
+            </p>
 
-            <ul className="mt-8 space-y-6">
-              <li className="flex gap-4">
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-white/10 text-gold-light">
-                  <MapPinIcon />
+            <dl className="mt-7 flex flex-1 flex-col justify-between gap-3">
+              <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-[0_8px_30px_rgb(11_37_69/0.08)]">
+                <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-navy text-gold-light">
+                  <PhoneIcon className="size-6" />
                 </span>
                 <div>
-                  <h3 className="font-heading text-base font-semibold text-white">Address</h3>
-                  <address className="mt-1 not-italic">
-                    {site.name}
-                    <br />
-                    {fullAddress}
-                  </address>
+                  <dt className="text-sm text-body">Phone</dt>
+                  <dd>
+                    <a
+                      href={site.phone.href}
+                      className="inline-flex min-h-8 items-center text-lg font-semibold text-navy hover:text-gold-dark"
+                    >
+                      {site.phone.display}
+                    </a>
+                  </dd>
                 </div>
-              </li>
-              <li className="flex gap-4">
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-white/10 text-gold-light">
-                  <PhoneIcon />
+              </div>
+              <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-[0_8px_30px_rgb(11_37_69/0.08)]">
+                <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-navy text-gold-light">
+                  <WhatsAppIcon className="size-6" />
                 </span>
                 <div>
-                  <h3 className="font-heading text-base font-semibold text-white">Phone</h3>
-                  <a
-                    href={site.phone.href}
-                    className="inline-flex min-h-11 items-center font-semibold text-white underline decoration-gold-light decoration-2 underline-offset-4 hover:text-gold-light"
-                  >
-                    {site.phone.display}
-                  </a>
+                  <dt className="text-sm text-body">WhatsApp</dt>
+                  <dd>
+                    <a
+                      href={whatsappLink()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-8 items-center text-lg font-semibold text-navy hover:text-gold-dark"
+                    >
+                      Chat with us
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </dd>
                 </div>
-              </li>
-            </ul>
+              </div>
+              <div className="flex items-start gap-4 rounded-2xl bg-white p-4 shadow-[0_8px_30px_rgb(11_37_69/0.08)]">
+                <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-navy text-gold-light">
+                  <MapPinIcon className="size-6" />
+                </span>
+                <div>
+                  <dt className="text-sm text-body">Office</dt>
+                  <dd className="font-semibold text-navy">
+                    <address className="mt-0.5 not-italic">
+                      {site.name}
+                      <br />
+                      {fullAddress}
+                    </address>
+                    <a
+                      href={site.map.directions}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-flex min-h-9 items-center gap-2 text-base underline decoration-2 underline-offset-4 hover:text-gold-dark"
+                    >
+                      See on Google Map
+                      <ArrowRightIcon className="size-5 -rotate-45" />
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </dd>
+                </div>
+              </div>
+            </dl>
+          </div>
 
-            <div className="mt-8 flex flex-col gap-3">
-              <Button href={whatsappLink()} external variant="whatsapp" icon={WhatsAppIcon} onDark>
-                Chat on WhatsApp
-                <span className="sr-only"> (opens in a new tab)</span>
-              </Button>
-              <Button
-                href={site.map.directions}
-                external
-                variant="secondaryOnDark"
-                icon={MapPinIcon}
-              >
-                Get directions
-                <span className="sr-only"> (opens Google Maps in a new tab)</span>
-              </Button>
-            </div>
-          </aside>
+          <div className="order-3 lg:order-0">
+            <ContactForm />
+          </div>
         </div>
       </section>
 
