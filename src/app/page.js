@@ -95,7 +95,7 @@ export default function Home() {
           className={`${wide} grid grid-cols-1 gap-x-5 gap-y-6 py-8 min-[420px]:grid-cols-2 sm:gap-x-6 sm:gap-y-8 sm:py-10 lg:grid-cols-4 lg:gap-x-8 lg:py-12`}
         >
           {facts.map((fact) => (
-            <li key={fact.value} className="flex min-w-0 items-center gap-3 sm:gap-4 lg:justify-center lg:gap-5">
+            <li key={fact.value} className="flex min-w-0 flex-col items-center gap-2 text-center sm:flex-row sm:gap-4 sm:text-left lg:justify-center lg:gap-5">
               <fact.icon className="size-9 shrink-0 text-navy sm:size-10" />
               <p className="leading-snug">
                 <span className="block text-sm">{fact.top}</span>
@@ -130,14 +130,17 @@ export default function Home() {
       {/* What we do */}
       <section aria-labelledby="what-we-do" className="overflow-hidden bg-wash pb-14 pt-6 sm:pb-24 sm:pt-10">
         <Reveal className={container}>
-          <SectionHeading id="what-we-do" title="What we do">
-            <p>
-              We are an FMCG distribution company connecting leading brands to
-              retailers across Malappuram District. Our executive marketer
-              visits your shop and takes your order, our supply team packs it,
-              and our delivery team brings it to your doorstep.
-            </p>
-          </SectionHeading>
+          {/* Centred on phones, left-aligned from sm up. */}
+          <div className="text-center sm:text-left">
+            <SectionHeading id="what-we-do" title="What we do">
+              <p>
+                We are an FMCG distribution company connecting leading brands to
+                retailers across Malappuram District. Our executive marketer
+                visits your shop and takes your order, our supply team packs it,
+                and our delivery team brings it to your doorstep.
+              </p>
+            </SectionHeading>
+          </div>
           {/* Shops, delivery trucks and the godown: the journey described above. */}
           <div className="mx-[-30%] mt-10 sm:mx-0">
             <Image
