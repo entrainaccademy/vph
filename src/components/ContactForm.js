@@ -46,16 +46,16 @@ function buildWhatsAppMessage(values) {
 }
 
 const inputClass =
-  "block min-h-12 w-full border-0 border-b bg-transparent px-0 py-2.5 text-base text-white placeholder:text-white/45 focus:border-gold-light";
+  "block min-h-12 w-full border-0 border-b bg-transparent px-0 py-2.5 text-base text-navy placeholder:text-navy/45 focus:border-navy";
 
 function fieldClass(hasError) {
-  return `${inputClass} ${hasError ? "border-red-300" : "border-white/40"}`;
+  return `${inputClass} ${hasError ? "border-red-700" : "border-navy/40"}`;
 }
 
 function ErrorText({ id, children }) {
   if (!children) return null;
   return (
-    <p id={id} className="mt-2 text-sm font-medium text-red-300">
+    <p id={id} className="mt-2 text-sm font-medium text-red-700">
       {children}
     </p>
   );
@@ -150,17 +150,17 @@ export default function ContactForm() {
       noValidate
       onSubmit={handleSubmit}
       aria-describedby="form-note"
-      className="relative h-full rounded-4xl bg-navy p-6 text-white sm:p-9"
+      className="relative h-full rounded-4xl bg-wash-200 p-6 text-navy sm:p-9"
     >
-      <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">Contact</h2>
-      <p id="form-note" className="mt-2 text-sm text-white/70">
+      <h2 className="text-2xl font-semibold tracking-tight text-navy sm:text-3xl">Contact</h2>
+      <p id="form-note" className="mt-2 text-sm text-navy/75">
         Fields marked <span aria-hidden="true">*</span>
         <span className="sr-only">with an asterisk</span> are required.
       </p>
 
       <div className="mt-6 grid gap-x-6 gap-y-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="text-sm font-medium text-white/80">
+          <label htmlFor="name" className="text-sm font-medium text-navy/80">
             Name <span aria-hidden="true">*</span>
           </label>
           <input
@@ -179,7 +179,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="shop" className="text-sm font-medium text-white/80">
+          <label htmlFor="shop" className="text-sm font-medium text-navy/80">
             Shop/Company name
           </label>
           <input
@@ -194,7 +194,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="phone" className="text-sm font-medium text-white/80">
+          <label htmlFor="phone" className="text-sm font-medium text-navy/80">
             Phone <span aria-hidden="true">*</span>
           </label>
           <input
@@ -215,7 +215,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="area" className="text-sm font-medium text-white/80">
+          <label htmlFor="area" className="text-sm font-medium text-navy/80">
             Area/Town
           </label>
           <input
@@ -234,15 +234,15 @@ export default function ContactForm() {
         className="mt-5"
         aria-describedby={errors.role ? "role-error" : undefined}
       >
-        <legend className="text-sm font-medium text-white/80">
+        <legend className="text-sm font-medium text-navy/80">
           I am a <span aria-hidden="true">*</span>
         </legend>
         <div className="mt-2 flex flex-wrap gap-3">
           {roles.map((role) => (
             <label
               key={role}
-              className={`inline-flex min-h-11 cursor-pointer items-center gap-3 rounded-full border px-4 text-white has-checked:border-gold-light has-checked:bg-gold-light has-checked:text-navy ${
-                errors.role ? "border-red-300" : "border-white/40"
+              className={`inline-flex min-h-11 cursor-pointer items-center gap-3 rounded-full border bg-white px-4 text-navy has-checked:border-navy has-checked:bg-navy has-checked:text-white ${
+                errors.role ? "border-red-700" : "border-navy/30"
               }`}
             >
               <input
@@ -262,8 +262,8 @@ export default function ContactForm() {
       </fieldset>
 
       <div className="mt-5">
-        <label htmlFor="message" className="text-sm font-medium text-white/80">
-          Message <span className="font-normal text-white/55">(optional)</span>
+        <label htmlFor="message" className="text-sm font-medium text-navy/80">
+          Message <span className="font-normal text-navy/55">(optional)</span>
         </label>
         <textarea
           id="message"
@@ -293,12 +293,11 @@ export default function ContactForm() {
         <Button
           type="submit"
           disabled={submitting}
-          onDark
           className="disabled:cursor-wait disabled:opacity-70 sm:flex-1"
         >
           {submitting ? "Sending…" : "Send enquiry"}
         </Button>
-        <Button variant="secondaryOnDark" onDark icon={WhatsAppIcon} onClick={handleWhatsApp}>
+        <Button variant="secondary" icon={WhatsAppIcon} onClick={handleWhatsApp}>
           Send on WhatsApp
           <span className="sr-only"> (opens in a new tab)</span>
         </Button>

@@ -63,9 +63,9 @@ export const site = {
       "Hello VPH Enterprises, I would like to know more about your products.",
   },
 
-  // TODO: Email address not provided yet. Add it here and surface it in
-  // Footer and the contact page once confirmed.
-  email: null,
+  // Business email. Enquiries are delivered here by the form service (see
+  // the form block below); this value is not shown on the site yet.
+  email: "vphenterprises@gmail.com",
 
   // TODO: Working hours not provided yet. Add them here and surface them in
   // Footer and the contact page once confirmed.

@@ -144,10 +144,9 @@ export default function AboutPage() {
             </p>
             <h2
               id="partner"
-              className="mt-3 font-heading text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.92] font-extrabold tracking-tighter text-navy"
+              className="mt-3 font-heading text-[clamp(1.9rem,9vw,2.75rem)] leading-[0.92] font-extrabold tracking-tighter whitespace-nowrap text-navy sm:text-[clamp(2.75rem,7vw,5.5rem)]"
             >
-              Partner
-              <span className="block">with us</span>
+              Partner <span className="sm:block">with us</span>
             </h2>
           </div>
           <div>

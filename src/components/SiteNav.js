@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site } from "@/config/site";
-import { CloseIcon, MenuIcon, PhoneIcon } from "./Icons";
+import { CloseIcon, MenuIcon } from "./Icons";
 
 const linkBase =
   "inline-flex min-h-11 items-center rounded-md px-3 font-semibold transition-colors";
@@ -46,14 +46,13 @@ export default function SiteNav() {
         </ul>
       </nav>
 
-      <a
-        href={site.phone.href}
-        className="ml-1 inline-flex min-h-11 items-center gap-2 rounded-md bg-navy px-5 font-medium text-white transition-colors hover:bg-navy-700 md:hidden"
+      {/* Phones: Contact button next to the menu button */}
+      <Link
+        href="/contact"
+        className="ml-1 inline-flex min-h-11 items-center rounded-md bg-navy px-5 font-medium text-white transition-colors hover:bg-navy-700 md:hidden"
       >
-        <PhoneIcon className="size-4" />
-        <span>Call</span>
-        <span className="sr-only">{site.phone.display}</span>
-      </a>
+        Contact
+      </Link>
 
       {/* Mobile menu toggle */}
       <button

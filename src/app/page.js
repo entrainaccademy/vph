@@ -64,9 +64,9 @@ export default function Home() {
                 <span className="text-[#a17b33]">made simple.</span>
               </span>
             </h1>
-            <p className="mx-auto mt-4 max-w-md text-base sm:mt-6 sm:text-lg lg:mx-0">
-              You order. We pack. We deliver. Eight trusted FMCG brands,
-              straight to your shop.
+            <p className="mx-auto mt-5 max-w-lg text-xl leading-relaxed font-medium text-navy sm:mt-7 sm:text-2xl lg:mx-0">
+              <strong className="font-bold">You order. We pack. We deliver.</strong>{" "}
+              Eight trusted FMCG brands, straight to your shop.
             </p>
             <div className="mt-8 hidden lg:flex">
               <HeroWhatsAppLink />
@@ -153,6 +153,11 @@ export default function Home() {
           </div>
           <div className="mt-10">
             <ProcessSteps />
+          </div>
+          <div className="mt-12 flex justify-center">
+            <Button href="/about" variant="secondary" className="min-h-16 px-12 text-xl">
+              About us
+            </Button>
           </div>
         </Reveal>
       </section>
