@@ -41,7 +41,7 @@ export default function ContactPage() {
             </p>
 
             <dl className="mt-7 flex flex-1 flex-col justify-between gap-3">
-              <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-[0_8px_30px_rgb(11_37_69/0.08)]">
+              <div className="group relative flex items-center gap-4 rounded-2xl bg-white p-4 shadow-[0_8px_30px_rgb(11_37_69/0.08)] transition-shadow hover:shadow-[0_8px_30px_rgb(11_37_69/0.18)]">
                 <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-navy text-gold-light">
                   <PhoneIcon className="size-6" />
                 </span>
@@ -50,14 +50,14 @@ export default function ContactPage() {
                   <dd>
                     <a
                       href={site.phone.href}
-                      className="inline-flex min-h-8 items-center text-lg font-semibold text-navy hover:text-gold-dark"
+                      className="inline-flex min-h-8 items-center text-lg font-semibold text-navy group-hover:text-gold-dark after:absolute after:inset-0 after:rounded-2xl after:content-['']"
                     >
                       {site.phone.display}
                     </a>
                   </dd>
                 </div>
               </div>
-              <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-[0_8px_30px_rgb(11_37_69/0.08)]">
+              <div className="group relative flex items-center gap-4 rounded-2xl bg-white p-4 shadow-[0_8px_30px_rgb(11_37_69/0.08)] transition-shadow hover:shadow-[0_8px_30px_rgb(11_37_69/0.18)]">
                 <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-navy text-gold-light">
                   <WhatsAppIcon className="size-6" />
                 </span>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                       href={whatsappLink()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-8 items-center text-lg font-semibold text-navy hover:text-gold-dark"
+                      className="inline-flex min-h-8 items-center text-lg font-semibold text-navy group-hover:text-gold-dark after:absolute after:inset-0 after:rounded-2xl after:content-['']"
                     >
                       Chat with us
                       <span className="sr-only"> (opens in a new tab)</span>
