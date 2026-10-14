@@ -99,13 +99,12 @@ export const site = {
   brands: [
     { name: "Britannia", logo: "/clients/Britannia.png" },
     { name: "Mondelēz International", logo: "/clients/Mondelez.png" },
-    { name: "Ferrero", logo: "/clients/ferrero_logo.png" },
-    { name: "Dalda", logo: "/clients/Dalda.png" },
+    { name: "Ferrero", logo: "/clients/ferrero_new.png" },
+    { name: "Dalda", logo: "/clients/dalda_glossy.png" },
     { name: "Kitchen Treasures", logo: "/clients/treasures.png" },
     { name: "Kerafed", logo: "/clients/KERAFED.png" },
-    // TODO: Confirm with the client whether this is Parle (Parle Products,
-    // Parle-G) or Parle Agro; the brief listed Parle Agro.
-    { name: "Parle", logo: "/clients/parle_logo.webp" },
+    // The new logo reads "Parlé Agro", matching the brief.
+    { name: "Parle Agro", logo: "/clients/parle_agro_new.png" },
     { name: "GSK", logo: "/clients/GlaxoSmithKline.png" },
   ],
 };
