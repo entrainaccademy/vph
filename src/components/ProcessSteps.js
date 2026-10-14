@@ -20,28 +20,35 @@ const steps = [
 
 export default function ProcessSteps() {
   return (
-    <ol className="grid gap-5 md:grid-cols-3">
+    // Timeline: round icon nodes joined by a dashed line, no boxes.
+    <ol className="grid gap-10 md:grid-cols-3">
       {steps.map((step, i) => (
         <li
           key={step.title}
-          className="flex flex-col rounded-xl border-2 border-navy bg-white p-6 shadow-[5px_5px_0_0_var(--color-navy)]"
+          className="relative flex gap-5 md:flex-col md:items-center md:gap-0 md:text-center"
         >
-          <div className="flex items-center justify-between gap-4">
-            <span className="inline-flex size-12 items-center justify-center rounded-lg bg-wash text-navy">
-              <step.icon className="size-6" />
-            </span>
+          {i < steps.length - 1 && (
             <span
               aria-hidden="true"
-              className="text-4xl leading-none font-semibold text-wash-200"
+              className="absolute top-16 left-8 h-[calc(100%-1rem)] -translate-x-px border-l-2 border-dashed border-gold md:top-8 md:left-1/2 md:h-0 md:w-[calc(100%+2.5rem)] md:translate-x-0 md:border-t-2 md:border-l-0"
+            />
+          )}
+          <span className="relative z-10 inline-flex size-16 shrink-0 items-center justify-center rounded-full border-4 border-wash bg-navy text-gold-light">
+            <step.icon className="size-7" />
+            <span
+              aria-hidden="true"
+              className="absolute -top-1 -right-1 inline-flex size-6 items-center justify-center rounded-full bg-gold text-xs font-semibold text-white"
             >
-              {String(i + 1).padStart(2, "0")}
+              {i + 1}
             </span>
+          </span>
+          <div className="md:mt-6">
+            <h3 className="text-xl font-semibold">
+              <span className="sr-only">Step {i + 1}: </span>
+              {step.title}
+            </h3>
+            <p className="mt-2 md:mx-auto md:max-w-xs">{step.text}</p>
           </div>
-          <h3 className="mt-8 text-xl font-semibold">
-            <span className="sr-only">Step {i + 1}: </span>
-            {step.title}
-          </h3>
-          <p className="mt-2">{step.text}</p>
         </li>
       ))}
     </ol>

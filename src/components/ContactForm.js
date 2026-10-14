@@ -31,9 +31,6 @@ function validate(values) {
   if (!values.role) {
     errors.role = "Please choose one option.";
   }
-  if (values.message.trim().length < 5) {
-    errors.message = "Please tell us a little about your enquiry.";
-  }
   return errors;
 }
 
@@ -266,20 +263,16 @@ export default function ContactForm() {
 
       <div className="mt-5">
         <label htmlFor="message" className="font-semibold text-navy">
-          Message <span aria-hidden="true">*</span>
+          Message <span className="font-normal text-body">(optional)</span>
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
-          required
           value={values.message}
           onChange={handleChange}
-          aria-invalid={errors.message ? true : undefined}
-          aria-describedby={errors.message ? "message-error" : undefined}
-          className={fieldClass(errors.message)}
+          className={fieldClass(false)}
         />
-        <ErrorText id="message-error">{errors.message}</ErrorText>
       </div>
 
       {/* Honeypot field, hidden from people and assistive tech. */}

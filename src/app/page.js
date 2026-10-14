@@ -1,19 +1,16 @@
 import Image from "next/image";
+import AreasSection from "@/components/AreasSection";
 import Button from "@/components/Button";
 import BrandGrid from "@/components/BrandGrid";
-import FeatureCard from "@/components/FeatureCard";
 import ProcessSteps from "@/components/ProcessSteps";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import WhyCards from "@/components/WhyCards";
 import {
   CalendarIcon,
-  ClockIcon,
-  HandshakeIcon,
   MapPinIcon,
-  ShieldIcon,
   StoreIcon,
   TagIcon,
-  TruckIcon,
   WhatsAppIcon,
 } from "@/components/Icons";
 import { site, whatsappLink } from "@/config/site";
@@ -33,30 +30,7 @@ const facts = [
   { icon: MapPinIcon, top: "Delivering", value: "Malappuram", sub: "to your doorstep" },
 ];
 
-const reasons = [
-  {
-    icon: ShieldIcon,
-    title: "Reliable supply",
-    text: "Consistent stock so you don't miss sales.",
-  },
-  {
-    icon: ClockIcon,
-    title: "On-time delivery",
-    text: "Orders packed by our supply team and delivered to your door by our delivery team.",
-  },
-  {
-    icon: MapPinIcon,
-    title: "Local knowledge",
-    text: "We understand Malappuram's markets and shops.",
-  },
-  {
-    icon: HandshakeIcon,
-    title: "Fair dealing",
-    text: "19 years of long-term relationships.",
-  },
-];
-
-const container = "mx-auto max-w-6xl px-4 sm:px-6 lg:px-8";
+const container ="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8";
 // Wider frame for the hero so text and picture sit near the edges.
 const wide = "mx-auto max-w-[100rem] px-4 sm:px-6 lg:px-12 xl:px-20";
 
@@ -91,9 +65,8 @@ export default function Home() {
               </span>
             </h1>
             <p className="mx-auto mt-4 max-w-md text-base sm:mt-6 sm:text-lg lg:mx-0">
-              We take your order, pack the products, and deliver them to your
-              shop across Malappuram. Choose from eight trusted FMCG brands,
-              with no minimum order.
+              You order. We pack. We deliver. Eight trusted FMCG brands,
+              straight to your shop.
             </p>
             <div className="mt-8 hidden lg:flex">
               <HeroWhatsAppLink />
@@ -135,26 +108,29 @@ export default function Home() {
       </section>
 
       {/* Brands */}
-      <section aria-labelledby="brands" className="py-14 sm:py-24">
-        <Reveal className={container}>
-          <SectionHeading
-            id="brands"
-            eyebrow="Our portfolio"
-            title="Brands we distribute"
-            align="center"
-          >
-            <p>We currently distribute 8 trusted brands.</p>
-          </SectionHeading>
-          <div className="mt-8 sm:mt-12">
-            <BrandGrid />
+      <section aria-labelledby="brands" className="bg-wash px-3 py-6 sm:px-5 sm:py-10 lg:px-7">
+        {/* Wide curved navy panel with a gap at the left and right edges. */}
+        <Reveal className="rounded-4xl bg-navy py-14 sm:rounded-[4rem] sm:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              id="brands"
+              title="Brands we distribute"
+              align="center"
+              onDark
+            >
+              <p>We currently distribute 8 trusted brands.</p>
+            </SectionHeading>
+            <div className="mt-8 sm:mt-12">
+              <BrandGrid />
+            </div>
           </div>
         </Reveal>
       </section>
 
       {/* What we do */}
-      <section aria-labelledby="what-we-do" className="overflow-hidden bg-wash py-14 sm:py-24">
+      <section aria-labelledby="what-we-do" className="overflow-hidden bg-wash pb-14 pt-6 sm:pb-24 sm:pt-10">
         <Reveal className={container}>
-          <SectionHeading id="what-we-do" eyebrow="How it works" title="What we do">
+          <SectionHeading id="what-we-do" title="What we do">
             <p>
               We are an FMCG distribution company connecting leading brands to
               retailers across Malappuram District. Our executive marketer
@@ -181,51 +157,21 @@ export default function Home() {
 
       {/* Why VPH */}
       <section aria-labelledby="why-vph" className="py-14 sm:py-24">
-        <Reveal className={container}>
-          <SectionHeading
-            id="why-vph"
-            eyebrow="Why VPH"
-            title="Why retailers choose VPH"
-            align="center"
-          />
-          <ul className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {reasons.map((reason) => (
-              <li key={reason.title}>
-                <FeatureCard icon={reason.icon} title={reason.title}>
-                  {reason.text}
-                </FeatureCard>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        <div className={container}>
+          <Reveal>
+            <SectionHeading id="why-vph" title="Why retailers choose VPH" align="center" />
+          </Reveal>
+          <div className="mt-10 sm:mt-14">
+            <WhyCards />
+          </div>
+        </div>
       </section>
 
       {/* Areas we serve */}
-      <section aria-labelledby="areas" className="pb-14 sm:pb-24">
-        <Reveal className={container}>
-          <div className="grid items-center gap-8 rounded-xl bg-wash p-6 sm:p-10 md:grid-cols-[1fr_auto]">
-            <SectionHeading id="areas" eyebrow="Coverage" title="Areas we serve">
-              <p>
-                We deliver across Malappuram District. Our base is in
-                Vahikkadavu, Malappuram.
-              </p>
-            </SectionHeading>
-            <div className="flex items-center gap-4 rounded-xl border-2 border-navy bg-white p-5 shadow-[4px_4px_0_0_var(--color-navy)]">
-              <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy">
-                <TruckIcon className="size-6" />
-              </span>
-              <p className="font-semibold text-navy">
-                Doorstep delivery
-                <br />
-                <span className="font-normal text-body">across Malappuram District</span>
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </section>
+      <AreasSection />
 
       {/* CTA */}
-      <section aria-labelledby="become-retailer" className="bg-navy py-14 sm:py-24">
+      <section aria-labelledby="become-retailer" className="bg-navy pt-14 sm:pt-24">
         <Reveal className={`${container} text-center`}>
           <SectionHeading
             id="become-retailer"

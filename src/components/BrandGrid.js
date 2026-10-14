@@ -10,7 +10,7 @@ export default function BrandGrid({ brands = site.brands }) {
           className="rounded-xl border-2 border-navy/10 bg-white p-2 transition-[border-color,box-shadow] duration-150 hover:border-navy hover:shadow-[4px_4px_0_0_var(--color-navy)] sm:p-3"
         >
           {/* Equal-size box so every logo has the same visual weight. */}
-          <div className="relative aspect-3/2 w-full">
+          <div className="relative aspect-4/3 w-full">
             {brand.logoMissing ? (
               // Placeholder until a usable logo file is supplied.
               <p className="flex h-full items-center justify-center text-xl font-semibold text-navy">
@@ -21,17 +21,11 @@ export default function BrandGrid({ brands = site.brands }) {
                 src={brand.logo}
                 alt={`${brand.name} - distributed by VPH Enterprises`}
                 fill
-                sizes="(min-width: 1152px) 260px, (min-width: 768px) 23vw, 46vw"
-                className="object-contain p-3 sm:p-5"
+                sizes="(min-width: 1280px) 300px, (min-width: 768px) 23vw, 46vw"
+                className="object-contain p-4 sm:p-6"
               />
             )}
           </div>
-          <p
-            aria-hidden="true"
-            className="border-t border-navy/10 px-1 pt-2 text-center text-sm font-medium text-navy"
-          >
-            {brand.name}
-          </p>
         </li>
       ))}
     </ul>
