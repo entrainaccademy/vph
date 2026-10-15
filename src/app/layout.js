@@ -16,6 +16,10 @@ export const metadata = {
   title: "VPH Enterprises | FMCG Distributors in Malappuram, Kerala",
   description:
     "Trusted FMCG distribution partner in Malappuram since 2007. Reliable supply of 8 leading brands to retailers across the district.",
+  // Meta (Facebook) domain verification for the WhatsApp Business setup.
+  other: {
+    "facebook-domain-verification": "dpc49rc5v4ch68dtauq8cq95fqjduv",
+  },
 };
 
 export const viewport = {
